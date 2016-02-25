@@ -1,0 +1,103 @@
+Please enter your name: Tim
+Tim, please enter a guess between 1 and 100: 4
+Too low!
+Tim, please enter a guess between 1 and 100: 1
+Too low!
+Tim, please enter a guess between 1 and 100: 2
+Too low!
+Tim, please enter a guess between 1 and 100: 3
+Too low!
+Tim, please enter a guess between 1 and 100: 2
+Too low!
+Tim, please enter a guess between 1 and 100: 1
+Too low!
+Tim, please enter a guess between 1 and 100: 100
+Too high!
+Tim, please enter a guess between 1 and 100: 12
+Too low!
+Tim, please enter a guess between 1 and 100: 13
+Too low!
+Tim, please enter a guess between 1 and 100: 4
+Too low!
+Tim, please enter a guess between 1 and 100: 4
+Too low!
+Tim, please enter a guess between 1 and 100: 60
+Too low!
+Tim, please enter a guess between 1 and 100: 90
+Too low!
+Tim, please enter a guess between 1 and 100: 70
+Too low!
+Tim, please enter a guess between 1 and 100: 91
+Too low!
+Tim, you failed to guess the correct number in 15 guesses.
+Would you like to play again? n
+
+
+Please enter your name: Timothy
+Timothy, please enter a guess between 1 and 100: 10
+Too low!
+Timothy, please enter a guess between 1 and 100: 20
+Too low!
+Timothy, please enter a guess between 1 and 100: 30
+Too low!
+Timothy, please enter a guess between 1 and 100: 40
+Too low!
+Timothy, please enter a guess between 1 and 100: 50
+Too high!
+Timothy, please enter a guess between 1 and 100: 60
+Too high!
+Timothy, please enter a guess between 1 and 100: 70
+Too high!
+Timothy, please enter a guess between 1 and 100: 80
+Too high!
+Timothy, please enter a guess between 1 and 100: 90
+Too high!
+Timothy, please enter a guess between 1 and 100: 100
+Too high!
+Timothy, please enter a guess between 1 and 100: 1
+Too low!
+Timothy, please enter a guess between 1 and 100: 100
+Too high!
+Timothy, please enter a guess between 1 and 100: 1
+Too low!
+Timothy, please enter a guess between 1 and 100: 1
+Too low!
+Timothy, please enter a guess between 1 and 100: 1
+Too low!
+Timothy, you failed to guess the correct number in 15 guesses.
+Would you like to play again? n
+
+
+Please enter your name: Tim
+Tim, please enter a guess between 1 and 100: 1
+Too low!
+Tim, please enter a guess between 1 and 100: 10
+Too low!
+Tim, please enter a guess between 1 and 100: 20
+Too low!
+Tim, please enter a guess between 1 and 100: 30
+Too low!
+Tim, please enter a guess between 1 and 100: 40
+Too low!
+Tim, please enter a guess between 1 and 100: 50
+Too low!
+Tim, please enter a guess between 1 and 100: 60
+Too low!
+Tim, please enter a guess between 1 and 100: 70
+Too high!
+Tim, please enter a guess between 1 and 100: 80
+Too high!
+Tim, please enter a guess between 1 and 100: 90
+Too high!
+Tim, please enter a guess between 1 and 100: 100
+Too high!
+Tim, please enter a guess between 1 and 100: 2
+Too low!
+Tim, please enter a guess between 1 and 100: 3
+Too low!
+Tim, please enter a guess between 1 and 100: 4
+Too low!
+Tim, please enter a guess between 1 and 100: 5
+Too low!
+Tim, you failed to guess the correct number in 15 guesses.
+Would you like to play again? n

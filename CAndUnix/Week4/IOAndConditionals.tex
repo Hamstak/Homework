@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage[margin=1in]{geometry}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=C,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\begin{document}
+\begin{flushright}
+  Tim Tanasse\\
+  CSCD 240\\
+  \today \\
+  Notes \# \# \\
+\end{flushright}
+\section*{C Conditionals and I/O}
+\subsection*{If Statements and Loop Statements}
+\begin{itemize}
+  \item Literally the same usage as Java.
+  \item Check demo1 and demo2 for examples.
+  \item Switch demo1 and demo2
+\end{itemize}
+\subsection*{Basic I/O}
+\begin{itemize}
+  \item int getchar(void)
+  \item this function reads the next avaiable character from the keyboard and returns it as an integer
+  \item this function reads only one character, so frequently used in loops
+  \item Be very careful with newline in buffer, as it is not read by getchar use while loops to empty buffer with $!= '\backslash n'$
+  \item the char *gets(char *s) function reads a line from stin into the buffer pointed to by s until either a terminating newline or an eof.
+  \item the int puts(const char *s) function writes the string s and a trailing newline to stdout
+  \item the return value is non-negative if functioning, or EOF if error.
+  \item the \textbf{int scanf(const char *format,...)} function reads input from the standard input stream stdin and scans that input according to format provided
+  \begin{itemize}
+    \item It should be noted that \textbf{scanf()} expects input in the same format as you provided in \%s and \%d, which means you have to provide valid input like "string integer"
+    \item While reading a string \textbf{scanf()} stops reading as soon as it encounters a space, so "this is a test" are 4 strings for \textbf{scanf()}
+    \item \textbf{scanf()} doesn't include newline feeds into the resulting string (VERY IMPORTANT)
+  \end{itemize}
+  \item the \textbf{ int printf(const char *format,...)} function writes output to the standard output stream stdout and produces output accourding to the format provided.
+\end{itemize}
+\end{document}

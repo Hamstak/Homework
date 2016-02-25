@@ -1,0 +1,94 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage[margin=1in]{geometry}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\begin{document}
+\begin{flushright}
+  Tim Tanasse\\
+  Java 210\\
+  \today \\
+  Notes \# \# \\
+\end{flushright}
+\section*{File IO}
+\begin{lstlisting}
+  import java.io.*;
+  import java.Scanner;
+  public class FileBasics{
+    public static void main(String ... args) throws FileNotFoundException{
+      double scoreFromFile = 0;
+      double total = 0;
+      int count = 0;
+      
+      // get a file 'handle'
+      File myFile = new File("scores.txt");
+      
+      //Connect the file hand to a Scanner object
+      Scanner fin = new Scanner(myFile);
+      
+      while(fin.hasNextLine()){
+        count++;
+        String str = fin.nextLine();
+        System.out.println(str);
+      }
+      
+      fin.close();
+      
+      string[] str = new String[count];
+      fin = new Scanner(myFile);
+      count = 0;
+      while (fin.hasNextLine()){
+        str[count] = fin.nextLine();
+        count++;
+      }
+    }
+  }
+\end{lstlisting}
+\begin{lstlisting}
+  import java.io.*;
+  import java.util.Scanner;
+  public class FileTester{
+    public static void main(String ... args) throws FileNotFoundException{
+      File fin = null;
+      String sWork;
+      PrintStream fout;
+      //this version is called
+    }
+  }
+\end{lstlisting}
+\subsection*{File out}
+\begin{lstlisting}
+  PrintWriter fout = new PrintWriter("dates.txt");
+  for (int i = 0; i < 100; i++){
+    fout.println("this is line" + (i + 1));
+  }
+  fout.close();
+\end{lstlisting}
+\end{document}

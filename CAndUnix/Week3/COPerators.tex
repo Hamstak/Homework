@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage[margin=1in]{geometry}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=C,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\begin{document}
+\begin{flushright}
+  Tim Tanasse\\
+  CSCD 240\\
+  \today \\
+  Notes \# \# \\
+\end{flushright}
+\section*{C Operators}
+\begin{itemize}
+  \item \#define or const to define a constant
+  \item Basic athirmetic operators
+  \item Exanded arirthmetic: \%, ++, --
+  \item preincriment and postincriment are included
+  \begin{itemize}
+    \item a++ uses current value of a, then incriments the value of a
+    \item ++a uses the new value of a, proceding the incriment.
+  \end{itemize}
+  \item Relational operators are the same as Java.
+  \item Bitwise Operators
+  \begin{itemize}
+    \item \&
+    \item Binary AND operator copies a 1-bit to the result if it exists in both operands
+    \item |
+    \item Binary OR operator copies a 1-bit to the result if it exists in either operands
+    \item Up Carrot
+    \item Binary XOR operator, copies a 1-bit to the result if it exists in only one operand
+    \item Tilde
+    \item Binary NOT operator, copies a 1-bit to the result if it does not exist in the operand.
+    \item $<<$
+    \item Binary Left Shift operator, the left operands value is moved left by the number of bits specificed in the right operand: $A<<2$
+    \item Left Shift same as $*2^k$ where $k$ is the number of bits shifted
+    \item $>>$
+    \item Binary Right Shift, the left operands value is moved left by the number of bits specificed in the right operand: $A<<2$
+    \item Right Shift same as$\frac{}{2^k}$ where $k$ is the number of bits shifted
+    \item Assignment: $<<=$, $>>=$, $\&=$, $\text{carrot}=$, $\text{tilde}=$
+  \end{itemize}
+\end{itemize}
+\end{document}

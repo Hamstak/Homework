@@ -1,0 +1,6 @@
+Name: Will Smith
+Description: unzip the submitted wSmithCSCD467Lab1.zip, you get a folder named
+tTanasseCSCD467Lab1
+To Compile: javac *.java in the appropriate folder
+
+To Run: java Inputter

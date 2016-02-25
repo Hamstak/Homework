@@ -1,0 +1,94 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage[margin=1in]{geometry}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\begin{document}
+\begin{flushright}
+  Tim Tanasse\\
+  Java 210\\
+  \today \\
+  Lab \# 1: review of Java \\
+\end{flushright}
+\section*{}
+\begin{itemize}
+  \item Define "class" and "Object"
+  \begin{itemize}
+    \item Class:\\
+    A collection of attributes and behaviors that describe something in real life.
+    \item Object:\\
+    An instance of a class which has attributes and most if not all of the behavoirs of the parent class.
+  \end{itemize}
+  \item What Java code is required for a class to properly implement the Comparable interface?
+  \begin{lstlisting}
+    public class MyClass implements Comparable<MyClass>
+  \end{lstlisting}
+  \item What is the output of the code below
+  \begin{lstlisting}
+    double a = 0;
+    while (a <= 10){
+      System.out.print(a + " ");
+      a--;
+    }
+  \end{lstlisting}
+  Output does not end, prints decending 'a' variable by incriments of 1.0.
+  \item Write a method that is called createArray that is passed a single integer value (guarenteed to be greater than zero). The method should create an array of type int, fill it with values starting at one, then return the array.
+  \begin{lstlisting}
+    public static int[] createArray(int size){
+      int[] temp = new int[size];
+      for(int i = 0; i < temp.length; i++){
+        temp[i] = i + 1;
+      }
+      return temp;
+    }
+  \end{lstlisting}
+  \item Write the six standard methods every self-respecting class should have for the Song class
+  \begin{lstlisting}
+    public String getName(){ return name; }
+    
+    public void setName(String name){ this.name = name; }
+    
+    public String getArtist(){ return artist; }
+    
+    public void setArtist(String artist){ this.artist = artist; }
+    
+    @Override
+    public boolean equals(Object obj){
+      if(this == obj)
+        return true;
+      if (obj == null)
+        return false;
+      if (this.getClass() != obj.getClass())
+        return false;
+      else if ()
+    }
+  \end{lstlisting}
+\end{itemize}
+\end{document}

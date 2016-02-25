@@ -1,0 +1,6 @@
+Name: Tim Tanasse
+Desc: compile run
+compile: javac *
+
+run: java Diners
+

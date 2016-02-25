@@ -1,0 +1,16 @@
+
+def alpha_word(words):
+	for word in words:
+		if word[0] < word[1]:
+			for i in range(len(word) - 1):
+				if word[i] > word [i+1]:
+					print(word + ": Not alphabetical\n")
+			print(word +": Reverse alphabetical\n")
+		else:
+			for i in range(len(word) - 1):
+				if word[i] < word[i+1]:
+					print(word + ": Not alphabetical")
+			print(word + ": Alphabetical")
+
+words = open(input.txt).splitlines
+alpha_words(words)

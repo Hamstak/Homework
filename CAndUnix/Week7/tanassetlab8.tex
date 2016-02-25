@@ -1,0 +1,73 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage[margin=1in]{geometry}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=C,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\begin{document}
+\begin{flushright}
+  Tim Tanasse\\
+  CSCD 240\\
+  \today \\
+  Notes \# \# \\
+\end{flushright}
+\section*{}
+\begin{lstlisting}
+    int **pptr = grades;
+    printf("-1: pptr= %p\n", pptr);
+    printf("-1: &pptr[0] = %p\n", &pptr[0] );
+    printf("-1: pptr+1= %p\n", pptr + 1);
+    printf("-1: pptr+2= %p\n", pptr + 2);
+\end{lstlisting}
+\textbf{Explanation: }the contents of \textbf{pptr} and the result of \text{\&pptr[0]} are the same, because pptr contains the address of \textbf{pptr[0]}: 0x7FB322403930. \textbf{pptr} points to integer pointers, which have a size of 8. Therefore the address of \textbf{pptr + 1} has an address of 0x7FB322403938, and \textbf{pptr + 2} has an address of 0x7FB322403940.
+\begin{lstlisting}
+    printf("0: pptr[0]= %p\n", pptr[0]);
+    printf("0: *pptr= %p\n", *pptr);
+    printf("0: &pptr[0][0]= %p\n", &pptr[0][0]);
+\end{lstlisting}
+\textbf{Explanation: }The contents of \text{pptr[0]} is the same as \textbf{grades[0]} and has an address of 0x7FB3224000E0. the dereferenced \textbf{pptr} and \text{pptr[0]} have the same value, which was recorded previously. The same is true of the next expression \textbf{pptr[0][0]} which is equivalent of \textbf{\&(*(*(pptr + 0) + 0))}. This translates similarly for \textbf{pptr[0]}, which is the same as \textbf{*(pptr + 0)} which is the same as \textbf{*pptr}
+\begin{lstlisting}
+    printf("1: pptr[1]= %p\n", pptr[1]);
+    printf("1: *(pptr + 1)= %p\n", *(pptr + 1));
+    printf("1: &pptr[1][0] = %p\n", &pptr[1][0] );
+\end{lstlisting}
+\textbf{Explanation: } The contents of \textbf{pptr[1]} is a memory address that is not contiguous of the previous addresses, that is, the contents of \textbf{pptr[1]} cannot be known by knowing the contents of \text{*pptr}, unlike the rest of pointer arithmetic, where any address can be known by knowing the base address. This is because every position of \text{pptr} (\textbf{pptr[0]}, \textbf{pptr[1]} ...) is allocated individually. These pointers do however point to contiguously allocated memeory. The three memory addresses are the same, for the same reasons as all of $0:$, they are equivalent statements: 0x7FB322401F50.
+\begin{lstlisting}
+    printf("2: *pptr + 1 = %p\n", *pptr + 1);
+    printf("2: *(pptr+0) + 1 = %p\n", *(pptr + 0) + 1);
+    printf("2: &pptr[0][1] = %p\n", &pptr[0][1] );  
+\end{lstlisting}
+\textbf{Explanation: } As stated in 0, \textbf{*(pptr + 0)} is equivalent to \textbf{*pptr}, thus the addresses for \textbf{*(pptr + 0) + 1} and \textbf{*pptr + 1} are the same: 0x7FB3224000E4. This is because \text{*pptr} is an integer pointer, and not a pointer pointer, and integers have a size of 4 bytes. Similar to before \textbf{pptr[0][1]} is equivalent to \textbf{*(*(pptr + 0) + 1)}, and \text{\&*(*(pptr + 0) + 1)} is the same as \textbf{*(pptr + 0) + 1}, and holds the same address as mentioned previously: 0x7FB3224000E4.
+\begin{lstlisting}
+    printf("3: *(pptr[1] + 1) = %d\n", *(pptr[1] + 1) );
+    printf("3: *( *(pptr + 1) + 1) = %d\n", *( * (pptr + 1) + 1) );
+    printf("3: pptr[1][1] = %d\n", pptr[1][1] );
+\end{lstlisting}
+\textbf{Explanation: }These statements are all equivalent forms of \textbf{pptr[1][1]} which is the integer contained at the memeory location \textbf{*(pptr + 1) + 1}, which is $5$. This does not need much more explanation, since these equivalences have been shown multiple times above.
+\end{document}

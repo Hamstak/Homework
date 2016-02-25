@@ -1,0 +1,25 @@
+cBlob = Height: 2
+Width: 2
+{0,0,0} {0,0,0} 
+{0,0,0} {0,0,0} 
+
+Input height: 1
+1Input width: 
+1input red: 
+input green: 1
+input blue: 1
+
+1
+cBlobSix after move: Height: 2
+Width: 2
+{0,0,0} {0,0,0} 
+{0,0,0} {0,0,0} 
+cBlobFive after move: Height: 0
+Width: 0
+cBlobSeven after move:Height: 2
+Width: 2
+{0,0,0} {0,0,0} 
+{0,0,0} {0,0,0} 
+cBlobOne after move: Height: 0
+Width: 0
+

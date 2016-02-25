@@ -1,0 +1,169 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage[margin=1in]{geometry}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\begin{document}
+\begin{flushright}
+  Tim Tanasse\\
+  CSCD 240\\
+  \today \\
+  Lab \# 2 \\
+\end{flushright}
+\section*{}
+\begin{itemize}
+  \item \textbf{1. Clearly explain why programs should be placed in /bin or /usr/bin.}\\
+  /bin and /usr/bin are in the PATH variable that is searched through by the shell, and collecting programs in a similar area/areas makes organization easier.
+  \item \textbf{2. You are asked to use a program named mystery that you have never used before. Explain how you would find information on the program regarding what it does. }\\
+  If it has a manual use the \textbf{man} command to get information on the program.
+  \item \textbf{3. There are many other environment variables available to the user.  Capture the printenv or env command.  Describe the environment variable PATH.}
+  \begin{quote}
+    ttanasse1@cslinux:~\$ env\\
+TERM=xterm\\
+SHELL=/bin/bash\\
+SSH\_CLIENT=146.187.9.244 58505 22\\
+SSH\_TTY=/dev/pts/0\\
+USER=ttanasse1\\
+LS\_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:\\
+MAIL=/var/mail/ttanasse1\\
+PATH=/usr/local/java/jdk1.8.0\_25/bin:/usr/local/java/jdk1.8.0\_25/jre/bin:\\/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games\\
+PWD=/home/EASTERN/ttanasse1\\
+LANG=en\_US.UTF-8\\
+KRB5CCNAME=FILE:/tmp/krb5cc\_900678906\_lu3534\\
+SHLVL=1\\
+HOME=/home/EASTERN/ttanasse1\\
+LOGNAME=ttanasse1\\
+SSH\_CONNECTION=146.187.9.244 58505 146.187.134.29 22\\
+LESSOPEN=| /usr/bin/lesspipe \%s\\
+LESSCLOSE=/usr/bin/lesspipe \%s \%s\\
+\_=/usr/bin/env
+  \end{quote}
+  PATH is the environment variable that is used by the shell to look for programs when using shell commands
+  \item \textbf{4. First use which command to locate where the chmod executable is. Then try to delete chmod.  Is it deleted? why or why not?}
+  No, I do not have the permissions necessary to delete chmod.
+\item\textbf{5. Capture the command(s) to create a list of empty text files:  test1, test2, test3, test33, st1, st2, st22.}
+\begin{quote}
+  ttanasse1@cslinux:~/TestFolder\$ touch test1 test2 test3 test33 st1 st2 st22
+\end{quote}
+\item \textbf{6. Using metacharacters and a single ls command to list all files whose name start with ‘test’.}
+\begin{quote}
+  ttanasse1@cslinux:~/TestFolder\$ ls test*\\
+test1  test2  test3  test33
+\end{quote}
+\item \textbf{7. Using metacharacters and a single ls command to list only the files whose name have the number 2 or 22 in them.}
+\begin{quote}
+  ttanasse1@cslinux:~/TestFolder\$ ls *[2]*\\
+st2  st22  test2
+\end{quote}
+\item \textbf{8. Using metacharacters and a single ls command to list only the files whose name have a single 2 not 22 in them.}
+\begin{quote}
+  ttanasse1@cslinux:~/TestFolder\$ ls *[\^2][2]\\
+st2  test2
+\end{quote}
+\item \textbf{9. Issue the which command on ls, i.e. which ls.  Where was the command found?}\\
+\textbf{ls} is found in \textbf{/bin/ln}
+\item \textbf{10. Issue the which command on pthread.h, i.e. which pthread.h.  Was the file pthread.h found? If it was not found, why not? How would you modify this and use another command to find pthread.h?}\\
+It was not found anywhere in the PATH dictacted directories. Use the \textbf{locate} command with a filename reveals that pthread.h is located at /usr/include/pthread.h.
+\item \textbf{11. Using only octal number values to add executable permission to test1, test2, test3 for all users.}
+\begin{quote}
+  ttanasse1@cslinux:~/TestFolder\$ chmod 755 test?\\
+ttanasse1@cslinux:~/TestFolder\$ ls -l\\
+total 0\\
+-rw-r--r-- 1 ttanasse1 IT-GenericLinuxGroup 0 Apr  9 10:19 st1\\
+-rw-r--r-- 1 ttanasse1 IT-GenericLinuxGroup 0 Apr  9 10:19 st2\\
+-rw-r--r-- 1 ttanasse1 IT-GenericLinuxGroup 0 Apr  9 10:19 st22\\
+-rwxr-xr-x 1 ttanasse1 IT-GenericLinuxGroup 0 Apr  9 10:19 test1\\
+-rwxr-xr-x 1 ttanasse1 IT-GenericLinuxGroup 0 Apr  9 10:19 test2\\
+-rwxr-xr-x 1 ttanasse1 IT-GenericLinuxGroup 0 Apr  9 10:19 test3\\
+-rw-r--r-- 1 ttanasse1 IT-GenericLinuxGroup 0 Apr  9 10:19 test33
+\end{quote}
+\item \textbf{12. Using only symbolic characters to remove read permission from st1 and st2 for the owner and group users.}
+\begin{quote}
+  ttanasse1@cslinux:~/TestFolder\$ chmod ug-r st?\\
+ttanasse1@cslinux:~/TestFolder\$ ls -l\\
+total 0\\
+--w----r-- 1 ttanasse1 IT-GenericLinuxGroup 0 Apr  9 10:19 st1\\
+--w----r-- 1 ttanasse1 IT-GenericLinuxGroup 0 Apr  9 10:19 st2\\
+-rw-r--r-- 1 ttanasse1 IT-GenericLinuxGroup 0 Apr  9 10:19 st22\\
+-rwxr-xr-x 1 ttanasse1 IT-GenericLinuxGroup 0 Apr  9 10:19 test1\\
+-rwxr-xr-x 1 ttanasse1 IT-GenericLinuxGroup 0 Apr  9 10:19 test2\\
+-rwxr-xr-x 1 ttanasse1 IT-GenericLinuxGroup 0 Apr  9 10:19 test3\\
+-rw-r--r-- 1 ttanasse1 IT-GenericLinuxGroup 0 Apr  9 10:19 test33
+\end{quote}
+\item \textbf{13. Using the man page describe what is the output by the env command with no arguments.}\\
+Without arguments or a command \textbf{env} prints the resulting environment, which is equivalent to the \textbf{printenv} command.
+\item \textbf{14. Show a shell command that will add the current directory to the PATH (without removing any existing folders from the current value of PATH.) }\\
+\textbf{export PATH="\$PATH":\$(pwd)}
+\item \textbf{15. Describe what you would have to do to make a permanent change to the Shell. For example, how to make an alias permanent in your shell. }\\
+Adding the command, in this case the \textbf{alias} command to the file .bashrc will use it when you launch the shell.
+\item \textbf{16. Create an alias named LA for a command ls –al.  Capture the output and show it worked.}
+\begin{quote}
+  ttanasse1@cslinux:~/TestFolder\$ alias LA='ls -al'\\
+ttanasse1@cslinux:~/TestFolder\$ LA\\
+total 8\\
+drwxr-xr-x 2 ttanasse1 IT-GenericLinuxGroup 4096 Apr  9 10:19 .\\
+drwx------ 7 ttanasse1 IT-GenericLinuxGroup 4096 Apr  6 19:11 ..\\
+--w----r-- 1 ttanasse1 IT-GenericLinuxGroup    0 Apr  9 10:19 st1\\
+--w----r-- 1 ttanasse1 IT-GenericLinuxGroup    0 Apr  9 10:19 st2\\
+-rw-r--r-- 1 ttanasse1 IT-GenericLinuxGroup    0 Apr  9 10:19 st22\\
+-rwxr-xr-x 1 ttanasse1 IT-GenericLinuxGroup    0 Apr  9 10:19 test1\\
+-rwxr-xr-x 1 ttanasse1 IT-GenericLinuxGroup    0 Apr  9 10:19 test2\\
+-rwxr-xr-x 1 ttanasse1 IT-GenericLinuxGroup    0 Apr  9 10:19 test3\\
+-rw-r--r-- 1 ttanasse1 IT-GenericLinuxGroup    0 Apr  9 10:19 test33
+\end{quote}
+\item \textbf{17. Create a text file using command cal 2015 > date.txt. Issue the more command or the less command on date.txt and capture the output. How to move to the beginning of date.txt in less? How to move to the end of date.txt in less? How to scroll down or up? Please explain if you cannot capture the screen.}\\
+J and K scroll up and down respectively, use F and B to move window up and down respectively
+\item \textbf{18. Add executable privilege to date.txt for the owner, Capture the command and prove that the permissions were changed. No other permissions will be changed.  You must do this with the octal values.}\\
+\begin{quote}
+  ttanasse1@cslinux:~\$ chmod u+x date.txt \\
+ttanasse1@cslinux:~\$ ls -l\\
+total 16\\
+drwxr-xr-x 2 ttanasse1 IT-GenericLinuxGroup 4096 Apr  2 11:06 copyTest\\
+drwxr-xr-x 4 ttanasse1 IT-GenericLinuxGroup 4096 Apr  6 19:47 cscd240\\
+-rwxr--r-- 1 ttanasse1 IT-GenericLinuxGroup 2184 Apr  9 11:15 date.txt\\
+\end{quote}
+\item \textbf{19. Remove read permission from date.txt for the group users. Capture the command and prove that the permission was changed. No other permissions will be changed.  You must do this without using the octal values.}
+\begin{quote}
+  ttanasse1@cslinux:~\$ chmod g-r date.txt \\
+ttanasse1@cslinux:~\$ ls -l\\
+total 16\\
+drwxr-xr-x 2 ttanasse1 IT-GenericLinuxGroup 4096 Apr  2 11:06 copyTest\\
+drwxr-xr-x 4 ttanasse1 IT-GenericLinuxGroup 4096 Apr  6 19:47 cscd240\\
+-rwx---r-- 1 ttanasse1 IT-GenericLinuxGroup 2184 Apr  9 11:15 date.txt
+\end{quote}
+\item \textbf{20. Try out the command echo b\{i,a,o\}ke,   capture the output and explain what does the \{ do?} The terminal prints out \textbf{bike bake boke}. The bracket indicates that it wants the command to be done for each character.
+\item \textbf{21. Explain what does the following command do?    cp  ~/play/old*.mp[34]  /tmp/existingFolder}\\
+Copies all mp3 and mp4 files that start with old into a folder in tmp.
+\item \textbf{22. Try out !! and !cd command, what do these commands do?}\\
+!! executes the previous command, and !ch searches the bash history for the most recently used command that starts with 'cd' and executes that.
+\item \textbf{23. Assume you have 5 files in the current working directory, Section.pdf, Lecture.pdf, soundecho.mp3, neck.jpg, Monday.sh. If you type in  ls –l [\^ A-P]ec*, what output you will see? Clearly explain why you see your output.}\\
+lists the longform information for all files that start with anything other than A-P, followed by 'ec' and then any string of characters. The output would only contain the information for 'Section.pdf'.
+\end{itemize}
+\end{document}

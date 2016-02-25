@@ -1,0 +1,11 @@
+Name: Tim Tanasse
+Description: Zip stuff, compile stuff, execute stuff
+
+Compile:
+	javac Main.java
+Run:
+	java Main
+
+1. Thread doesn't release lock/leave busyloop
+2. Rewrote everything to not be bad code/fixed the mutex handling
+3. Doesn't hold lock while waiting to get a turn

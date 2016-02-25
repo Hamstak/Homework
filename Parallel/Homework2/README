@@ -1,0 +1,6 @@
+Name: Tim Tanasse
+
+compile: javac *
+
+run: java MyPrimeTest
+

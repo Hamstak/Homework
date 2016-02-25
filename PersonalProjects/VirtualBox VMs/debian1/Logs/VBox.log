@@ -1,0 +1,18 @@
+VirtualBox VM 4.3.26 r98988 linux.x86 (Mar 16 2015 18:01:14) release log
+00:00:01.449712 Log opened 2015-04-14T18:23:37.533917000Z
+00:00:01.449715 Build Type: release
+00:00:01.449722 OS Product: Linux
+00:00:01.449724 OS Release: 3.13.0-49-generic
+00:00:01.449726 OS Version: #81-Ubuntu SMP Tue Mar 24 19:29:15 UTC 2015
+00:00:01.449761 DMI Product Name: Aspire 5560
+00:00:01.449772 DMI Product Version: 0.1
+00:00:01.449936 Host RAM: 3501MB total, 2126MB available
+00:00:01.449943 Executable: /usr/lib/virtualbox/VirtualBox
+00:00:01.449945 Process ID: 24054
+00:00:01.449947 Package type: LINUX_32BITS_UBUNTU_13_04
+00:00:01.505953 Installed Extension Packs:
+00:00:01.506059   None installed!
+00:00:01.542330 UIMediumEnumerator: Medium-enumeration finished!
+00:00:01.543422 Using XKB for keycode to scan code conversion
+00:00:01.641886 Power up failed (vrc=VINF_SUCCESS, rc=NS_ERROR_FAILURE (0X80004005))
+00:00:01.888396 UIMachineView::storeGuestSizeHint: Storing guest size-hint for screen 0 as 640x480

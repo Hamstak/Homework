@@ -1,0 +1,26 @@
+CapitalizeServer:
+    Capitalizer:
+        Connects to clients; gathers sockets
+        
+ThreadPool:
+    Allows inputs of threads/runnables into a JobQueue
+    Manages 2 thresholds for allowing/disallowing 
+    WorkerThreads to collect from the JobQueue and execute 
+    the Run method existing in the objects in the JobQueue
+    
+    WorkerThread:
+        Takes jobs from JobQueue and executes them, will do 
+        this process dependant on whether or not its
+        threshold is active
+        
+JobQueue:
+    concurrent wrapper around a queue with an additional 
+    capacity and handling for not adding to the queue when
+    at capacity used by ThreadPool to store,retrieve,pass
+    around by the WorkerThreads in ThreadPool
+    
+FakeClient:
+    Requests tons of connections and commands to the server 
+    to test edge cases
+    
+

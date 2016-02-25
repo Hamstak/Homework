@@ -1,0 +1,11 @@
+Name: Tim Tanasse
+Desc: compile run
+
+Compile: Javac *
+
+Run: Java CapitalizeServer
+	Java FakeClient
+	or
+	java CapitalizeClient
+
+

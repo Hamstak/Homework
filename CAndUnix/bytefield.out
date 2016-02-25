@@ -1,0 +1,26 @@
+\BOOKMARK [1][-]{section.1}{1 Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{2 Usage}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{2.1 A first example}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{2.2 Basic commands}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{2.3 Formatting options}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{2.4 Common tricks}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.5}{2.5 Not-so-common tricks}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.6}{2.6 Putting it all together}{section.2}% 8
+\BOOKMARK [2][-]{subsection.2.7}{2.7 Upgrading from older versions}{section.2}% 9
+\BOOKMARK [1][-]{section.3}{3 Implementation}{}% 10
+\BOOKMARK [2][-]{subsection.3.1}{3.1 Required packages}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.2}{3.2 Utility macros}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.3}{3.3 Top-level environment}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.4}{3.4 Box-drawing macros}{section.3}% 14
+\BOOKMARK [3][-]{subsubsection.3.4.1}{3.4.1 Drawing \(proper\)}{subsection.3.4}% 15
+\BOOKMARK [3][-]{subsubsection.3.4.2}{3.4.2 Parsing arguments}{subsection.3.4}% 16
+\BOOKMARK [2][-]{subsection.3.5}{3.5 Skipped words}{section.3}% 17
+\BOOKMARK [2][-]{subsection.3.6}{3.6 Bit-position labels}{section.3}% 18
+\BOOKMARK [2][-]{subsection.3.7}{3.7 Word labels}{section.3}% 19
+\BOOKMARK [3][-]{subsubsection.3.7.1}{3.7.1 Curly-brace manipulation}{subsection.3.7}% 20
+\BOOKMARK [3][-]{subsubsection.3.7.2}{3.7.2 Right-side labels}{subsection.3.7}% 21
+\BOOKMARK [3][-]{subsubsection.3.7.3}{3.7.3 Left-side labels}{subsection.3.7}% 22
+\BOOKMARK [3][-]{subsubsection.3.7.4}{3.7.4 Scratch space}{subsection.3.7}% 23
+\BOOKMARK [2][-]{subsection.3.8}{3.8 Compatibility mode}{section.3}% 24
+\BOOKMARK [2][-]{subsection.3.9}{3.9 Option processing}{section.3}% 25
+\BOOKMARK [1][-]{section.4}{4 Future work}{}% 26

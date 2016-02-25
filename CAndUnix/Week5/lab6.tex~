@@ -1,0 +1,141 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage[margin=1in]{geometry}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{graphicx}
+\graphicspath{{/home/tim/Pictures/}}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=C,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\begin{document}
+\begin{flushright}
+  Tim Tanasse\\
+  CSCD 240\\
+  \today \\
+  Notes \# \# \\
+\end{flushright}
+\section*{Problem 1: Write, compile, and execute the following C file and answer the following questions}
+\begin{itemize}
+  \item \textbf{What is the size of ptr on cslinux?}\\
+  \textbf{ptr} takes up 8 bytes
+  \item \textbf{What is the size of arr[0] on cslinux?}\\
+  \textbf{arr[0]} takes up 4 bytes
+  \item \textbf{Draw a diagram of the memeory map of ptr and arr given that arr is at base address 0x5600bc}\\
+  See last page
+\end{itemize}
+\section*{Problem 2: Take educated guesses about the functioning of some code involving pointers}
+\begin{itemize}
+  \item \begin{lstlisting}
+    ptr++;
+printf("*ptr %d\n", *ptr);
+printf("ptr %p\n", ptr);
+  \end{lstlisting}
+  \textbf{Explanation:} The pointer is incremented, which moves it by the size of an integer (4) from 0x5600bc to 0x5600c0. Prints the value at the ptr location: 400, or \textbf{arr[1]}. Prints the memory address contents of \textbf{ptr}, which should have shifted 4 bytes from the previous address.
+  \item \begin{lstlisting}
+    *++ptr;
+printf("*++ptr %d\n", *ptr);
+printf("ptr %p\n", ptr);
+  \end{lstlisting}
+  \textbf{Explanation:} The unary operator \textbf{*} is read from right to left, which makes \textbf{*++ptr} execute similarly to \textbf{*(++ptr)}. The pointer is incremented from 0x5600c0 to 0x5600c4. Prints the value at the new memeory location: 600, or \textbf{arr[2]}. Prints the memory address contents of \textbf{ptr}, which should have shifted 4 bytes from the previous address.
+  \item \begin{lstlisting}
+    *ptr++;
+printf("*ptr++ %d\n", *ptr);
+printf("ptr %p\n", ptr);
+  \end{lstlisting}
+  \textbf{Explanation:} In the same way as the previous explanation, \textbf{*ptr++} is interpreted as \textbf{*(ptr++)} and the pointer \textbf{ptr} is incremented. Prints the value at the new memory location: 800, or \textbf{arr[3]}. Prints the memory address contents of \textbf{ptr}, which should have shifted 4 bytes from the previous address 0x5600c4 to 0x5600c8.
+  \item \begin{lstlisting}
+    ptr = arr; // reset ptr, no need to explain this statement
+
+    // fun with printf repeat last couple of commands
+    printf("*++ptr %d\n", *++ptr);
+    printf("ptr %p\n", ptr);
+  \end{lstlisting}
+  \textbf{Explanation:} Due to the functionality of \textbf{++} and the previously stated functionality of \textbf{*}, the pointer is incremented before being used in \textbf{printf}. Prints the value that the pointer now points to: 400, or \textbf{arr[1]}. Prints the memeory address contents of \text{ptr}: 0x5600c0.
+  \item \begin{lstlisting}
+    printf("*ptr++ %d\n", *ptr++);
+    printf("ptr %p\n", ptr);
+  \end{lstlisting}
+  \textbf{Explanation:} Unlike the above, post incrementing results in the pointer being incremented after it is used in \textbf{printf}. Prints the dereferenced pointer value: 400 or \textbf{arr[1]}, then increments the pointer. Prints the new memory address contents of \textbf{ptr}: 0x5600c4.
+  \item\begin{lstlisting}
+    ptr = arr; // reset ptr, no need to explain this statement
+    *ptr += 1;
+    printf("*ptr %d\n", *ptr);
+    printf("ptr %p\n", ptr);
+\end{lstlisting}
+  \textbf{Explanation:} The pointer is dereferenced, and then the value is incremented by 1 from 200 to 201. Prints the derefenced value: 201, or \textbf{arr[0]}. Prints the memory address contents of \textbf{ptr}: 0x5600bc.
+  \item\begin{lstlisting}
+printf("*(ptr+1) = %d\n", *(ptr+1));
+\end{lstlisting}
+\textbf{Explanation} Takes the pointer value and increases it by 4 bytes. Prints the value at that adjusted location: 400.
+\item \begin{lstlisting}
+  ptr = arr; // reset ptr, no need to explain this statement
+  *(arr+2) = *ptr+100;
+  printf("*(arr+2) = %d\n", *(arr+2));
+\end{lstlisting}
+\textbf{Explanation:} The \textbf{arr} variable is a memory address of the variable \textbf{arr[0]}. So the value at \text{arr + 2} or \textbf{arr[2]} is getting the derefernced value of \textbf{ptr} + 100. Prints the new derefenced value: 301, or \text{arr[2]}
+\item \begin{lstlisting}
+ptr = arr + 5;
+printf("*ptr %d\n", *ptr);
+printf("ptr %p\n", ptr);
+\end{lstlisting}
+\textbf{Explanation:} The pointer is set to \text{arr + 5} which is equivalent to getting the memory address of \textbf{arr[5]}. Prints the dereferenced value: 1200. Prints the memeory address content of \textbf{ptr}: 0x5600D0
+\item \begin{lstlisting}
+  
+ptr = arr; // reset ptr, no need to explain this statement
+
+arr[2] = *(ptr + 5);
+printf("arr[2] = %d\n", arr[2]);
+
+\end{lstlisting}
+\textbf{Explanation:} \textbf{arr[2]} gets the dereferenced value of \textbf{ptr + 5}, which is \textbf{arr[5]}. Prints the value of \textbf{arr[2]}: 1200.
+\item \begin{lstlisting}
+ptr = (arr + 10);
+printf("ptr %p\n", ptr);
+printf("*ptr %d\n", *ptr);
+\end{lstlisting}
+\textbf{Explanation:} \textbf{ptr} gets ten 4 byte increments, which puts it outside of the array \textbf{arr}. Prints the memory address content of \textbf{ptr}: 0x5600e4. Prints the dereferenced value at that memeory location.
+\end{itemize}
+\section*{Problem 3: Corrections}
+\begin{itemize}
+  \item \textbf{19:} Correct Guess
+  \item \textbf{23:} Correct Guess
+  \item \textbf{27:} Correct Guess
+  \item \textbf{34:} Correct Guess
+  \item \textbf{37:} Correct Guess
+  \item \textbf{42:} Correct Guess
+  \item \textbf{46:} Correct Guess
+  \item \textbf{50:} Correct Guess
+  \item \textbf{53:} Correct Guess
+  \item \textbf{59:} Correct Guess
+  \item \textbf{62:} Correct Guess
+\end{itemize}
+\pagebreak
+\includegraphics[width=\textwidth]{lab6-1.png}\\
+\includegraphics[width=\textwidth]{lab6-2.png}
+\pagebreak
+\end{document}

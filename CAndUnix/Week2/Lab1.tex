@@ -1,0 +1,205 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage[margin=1in]{geometry}
+\usepackage{listings}
+\usepackage{color}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  %deletekeywords={...},           % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=single,                    % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=bash,                   % the language of the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,                       % sets default tabsize to 2 spaces                
+}
+\begin{document}
+\begin{flushright}
+  Tim Tanasse\\
+  CSCD 240\\
+  \today \\
+  Lab \# 1 \\
+\end{flushright}
+\begin{itemize}
+  \item 1. Capture the results of the uname –a command.  What is the purpose of the uname command?  How did you find help information on the uname command?\\
+  \begin{quote}
+    ttanasse1@cslinux:~\$ uname -a \\
+    Linux cslinux 3.13.0-48-generic \#80~precise1-Ubuntu SMP Thu Mar 12 19:30:15 UTC 2015 x86\_64 x86\_64 x86\_64 GNU/Linux
+  \end{quote}
+Gives system information including kernal name version and release, network node host, machine hardware, processor type, hardware type, and OS. \textbf{--help} is the option which gives additional information for the \textbf{uname} command, but the \textbf{man} manual command also brings up information and options for \textbf{uname}.
+  \item 2. Capture a detailed list of ALL files and directories, including dot (hidden) files, in the /lib directory.  By editing your text file, indicated which lines refer to: files, directories and links.  – You don’t need to do this for all the files, just a few to illustrate you understand the difference. (2 of each)
+  \begin{quote}
+    ttanasse1@cslinux:/lib\$ ls -al\\
+total 1468
+drwxr-xr-x 19 root root   4096 Feb 27 06:47 .\qquad\#directory\\
+drwxr-xr-x 26 root root   4096 Mar 24 06:58 ..     \qquad\#directory\\
+drwxr-xr-x  2 root root   4096 Aug 12  2014 apparmor     \qquad\#directory\\
+lrwxrwxrwx  1 root root     21 May 21  2012 cpp -> /etc/alternatives/cpp   \qquad   \#link\\
+-rwxr-xr-x  1 root root  70680 Mar 30  2012 klibc-bhN-zLH5wUTKSCGch2ba2xqTtLE.so  \qquad    \#file\\
+lrwxrwxrwx  1 root root     20 Feb 25 09:45 ld-linux.so.2 -> /lib32/ld-linux.so.2    \qquad  \#link\\
+-rw-r--r--  1 root root  97072 Apr 13  2012 libcryptsetup.so.4.0.0  \qquad   \#file
+  \end{quote}
+  [redacted to save paper]
+  \item 3. Capture the command and a detailed listing of the file properties of the .bashrc file in your home directory. Add a comment below this capture that explains all the file properties of .bashrc.
+  \begin{quote}
+    ttanasse1@cslinux:~\$ ls -al\\
+total 36\\
+drwx------  6 ttanasse1 IT-GenericLinuxGroup 4096 Apr  2 11:06 .\\
+drwxr-xr-x 14 root      root                    0 Apr  6 19:06 ..\\
+-rw-------  1 ttanasse1 IT-GenericLinuxGroup  476 Apr  6 15:31 .bash\_history\\
+-rw-r--r--  1 ttanasse1 IT-GenericLinuxGroup  220 Jan  2 10:30 .bash\_logout\\
+-rw-r--r--  1 ttanasse1 IT-GenericLinuxGroup 3486 Jan  2 10:30 .bashrc\\
+  \end{quote}
+  .bashrc is a regular file, the user currently has read and write permissions, the group and other users have read permissions, it has one link, I am the owner, it belongs to the IT-GenericLinuxGroup, the file size is 3486 bytes, it was last accessed at the date, and is hidden.
+  \item 4. Create a subdirectory called cscd240 in your home directory. Capture the command that created the directory and the output of an ls command that shows that the new directory exists. 
+  \begin{quote}
+    ttanasse1@cslinux:~\$ mkdir cscd240\\
+ttanasse1@cslinux:~\$ ls\\
+copyTest  cscd240  netstorage  TestFolder
+  \end{quote}
+\end{itemize}
+\pagebreak
+\begin{itemize}
+  \item 5. Create another subdirectory inside cscd240 that is named lab1. Capture the command that created the directory and the output of an ls command that shows that the new directory exists. NOTE: The creation of the directory lab1 must be made from /home/EASTERN/yourusername
+  \begin{quote}
+    ttanasse1@cslinux:\$ mkdir cscd240/lab1
+ttanasse1@cslinux:~\$ cd cscd240
+ttanasse1@cslinux:~/cscd240\$ ls
+lab1
+  \end{quote}
+  \item 6. With the home directory still as your current working directory, capture the command that copies the .bashrc file from your home directory to a file called copy.bashrc in the lab1 directory.
+  \begin{quote}
+    ttanasse1@cslinux:~\$ cp .bashrc cscd240/lab1/copy.bashrc\\
+ttanasse1@cslinux:~\$ cd cscd240/lab1\\
+ttanasse1@cslinux:~/cscd240/lab1\$ ls\\
+copy.bashrc
+  \end{quote}
+  \item 7. Within the home directory, capture a detailed listing of all the files in the lab1 directory.
+  \begin{quote}
+    ttanasse1@cslinux:~\$ ls -al cscd240/lab1\\
+    total 12\\
+    drwxr-xr-x 2 ttanasse1 IT-GenericLinuxGroup 4096 Apr  6 19:17 .\\
+    drwxr-xr-x 3 ttanasse1 IT-GenericLinuxGroup 4096 Apr  6 19:12 ..\\
+    -rw-r--r-- 1 ttanasse1 IT-GenericLinuxGroup 3486 Apr  6 19:17 copy.bashrc
+  \end{quote}
+  \item 8. Change to the lab1 directory capture the change directory command and capture a command that renames the copy.bashrc in lab1 to my.copy.bashrc. 
+  \begin{quote}
+    ttanasse1@cslinux:~\$ cd cscd240/lab1\\
+ttanasse1@cslinux:~/cscd240/lab1\$ mv copy.bashrc my.copy.bashrc\\
+ttanasse1@cslinux:~/cscd240/lab1\$ ls\\
+my.copy.bashrc
+  \end{quote}
+  \item9. Capture a detailed listing of all the files in the lab1 directory.
+  \begin{quote}
+    ttanasse1@cslinux:~/cscd240/lab1\$ ls -al\\
+total 12\\
+drwxr-xr-x 2 ttanasse1 IT-GenericLinuxGroup 4096 Apr  6 19:22 .\\
+drwxr-xr-x 3 ttanasse1 IT-GenericLinuxGroup 4096 Apr  6 19:12 ..\\
+-rw-r--r-- 1 ttanasse1 IT-GenericLinuxGroup 3486 Apr  6 19:17 my.copy.bashrc
+  \end{quote}
+  \item 10. Starting in your lab1 directory, capture a command that uses a relative pathname to make cscd240 the current working directory.
+  \begin{quote}
+    ttanasse1@cslinux:~/cscd240/lab1\$ cd ..
+  \end{quote}
+  \item 11. Use the pwd command to indicate the current working directory.
+  \begin{quote}
+    ttanasse1@cslinux:~/cscd240\$ pwd\\
+/home/EASTERN/ttanasse1/cscd240
+  \end{quote}
+  \item 12. Starting in /usr/bin, (you will have to change to /usr/bin) (Prove you are in /usr/bin with pwd) capture the command using an absolute path that will make your home directory the current working directory. Prove the directory change with pwd.
+  \begin{quote}
+    ttanasse1@cslinux:~/cscd240\$ cd /usr/bin\\
+ttanasse1@cslinux:/usr/bin\$ pwd\\
+/usr/bin\\
+ttanasse1@cslinux:/usr/bin\$ cd /home/EASTERN/ttanasse1\\
+ttanasse1@cslinux:~\$ pwd\\
+/home/EASTERN/ttanasse1
+  \end{quote}
+  \item 13. Capture the command and output using rmdir (with no other commands) to delete the lab1 subdirectory. Does it delete the directory? Why or why not?  
+  \begin{quote}
+    ttanasse1@cslinux:~/cscd240\$ rmdir lab1\\
+rmdir: failed to remove `lab1': Directory not empty
+  \end{quote}
+  It does not delete the directory because \textbf{rmdir} only removes directories which are empty.
+  \item 14. Change directory so you are working from within the lab1 directory. Once in the directory:
+  \begin{itemize}
+    \item a. Capture the command that will create 6 files using the touch command. The files will be named test, test1, test21, test3, something, nothing.
+    \begin{quote}
+      ttanasse1@cslinux:~/cscd240/lab1\$ touch test1 test test21 test3 something nothing\\
+ttanasse1@cslinux:~/cscd240/lab1\$ ls\\
+my.copy.bashrc  nothing  something  test  test1  test21  test3\\
+ttanasse1@cslinux:~/cscd240/lab1\$ nano test1\\
+ttanasse1@cslinux:~/cscd240/lab1\$ head test1\\
+add text to test1 with nano :D\\
+ttanasse1@cslinux:~/cscd240/lab1\$ ls -al\\
+total 16\\
+drwxr-xr-x 2 ttanasse1 IT-GenericLinuxGroup 4096 Apr  6 19:34 .\\
+drwxr-xr-x 3 ttanasse1 IT-GenericLinuxGroup 4096 Apr  6 19:12 ..\\
+-rw-r--r-- 1 ttanasse1 IT-GenericLinuxGroup 3486 Apr  6 19:17 my.copy.bashrc\\
+-rw-r--r-- 1 ttanasse1 IT-GenericLinuxGroup    0 Apr  6 19:34 nothing\\
+-rw-r--r-- 1 ttanasse1 IT-GenericLinuxGroup    0 Apr  6 19:34 something\\
+-rw-r--r-- 1 ttanasse1 IT-GenericLinuxGroup    0 Apr  6 19:34 test\\
+-rw-r--r-- 1 ttanasse1 IT-GenericLinuxGroup   31 Apr  6 19:35 test1\\
+-rw-r--r-- 1 ttanasse1 IT-GenericLinuxGroup    0 Apr  6 19:34 test21\\
+-rw-r--r-- 1 ttanasse1 IT-GenericLinuxGroup    0 Apr  6 19:34 test3
+    \end{quote}
+    \item b. Capture the use NANO to add text to the file test1. 
+( hint: using command nano  file\_name, then follow the instructions in nano. )
+    \item c. Capture the long listing of test1 to show the size changed.
+  \end{itemize}
+  \item 15. Change directory into your lab1 directory again, make a new file called rules.log. Then using    ‘ls –al’ to find the permission for this rules.log file. Explain the permission of this file for the owner, group and other users in the system. Find which group does your account belongs to?  Capture all above activity and results in your terminal.
+  \begin{quote}
+    ttanasse1@cslinux:~/cscd240/lab1\$ touch rules.log\\
+ttanasse1@cslinux:~/cscd240/lab1\$ ls -al\\
+total 16\\
+-rw-r--r-- 1 ttanasse1 IT-GenericLinuxGroup    0 Apr  6 19:38 rules.log\\
+  \end{quote}
+  User has read and write permissions, group users and other users have only read permission. I belong to the IT-GenericLinuxGroup of users.
+  \item16. Change directory into lab1 directory, and make a new subdirectory named test\_code. 
+  \begin{itemize}
+    \item a. Using cd .. to go into lab1’s parent directory. Then capture the results of making a copy of lab1 directory, including all its subdirectories, named as lab1.copy.
+    \begin{quote}
+      ttanasse1@cslinux:~/cscd240\$ cp -r lab1 lab1.copy\\
+ttanasse1@cslinux:~/cscd240\$ ls\\
+lab1  lab1.copy
+    \end{quote}
+    \item b. Go into lab1.copy and run command rm *, explain what you get after run this command.
+    Removes all files from lab1.copy, but not the directory test\_code.
+  \end{itemize}
+  \item 17. Make a new command dir that is equivalent to linux command ‘ls –alh’, when type dir in your terminal, the shell will actually run ‘ls –alh’. Capture the command that can achieve that and the results.
+  \begin{quote}
+    ttanasse1@cslinux:~/cscd240\$ alias dir='ls -alh'\\
+ttanasse1@cslinux:~/cscd240\$ dir\\
+total 16K\\
+drwxr-xr-x 4 ttanasse1 IT-GenericLinuxGroup 4.0K Apr  6 19:47 .\\
+drwx------ 7 ttanasse1 IT-GenericLinuxGroup 4.0K Apr  6 19:11 ..\\
+drwxr-xr-x 4 ttanasse1 IT-GenericLinuxGroup 4.0K Apr  6 19:42 lab1\\
+drwxr-xr-x 4 ttanasse1 IT-GenericLinuxGroup 4.0K Apr  6 19:47 lab1.copy
+  \end{quote}
+  \item 19. With your regular account, change directory to /usr directory and try to create a new folder called junk. Are you able to create this new folder?  Capture the command and the execution results. Explain Why or Why not successful?
+  \begin{quote}
+ttanasse1@cslinux:/usr\$ mkdir junk\\
+mkdir: cannot create directory `junk': Permission denied
+  \end{quote}
+  I do not have write permissions for /usr.
+\end{itemize}
+\end{document}

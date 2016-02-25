@@ -1,0 +1,7 @@
+Name: Tim Tanasse
+Description: Zip stuff, compile stuff, execute stuff
+
+Compile:
+	javac Main.java
+Run:
+	java Main 3

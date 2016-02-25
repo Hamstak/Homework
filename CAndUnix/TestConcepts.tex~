@@ -1,0 +1,397 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage[margin=1in]{geometry}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\begin{document}
+\begin{flushright}
+  Tim Tanasse\\
+  Java 210\\
+  \today \\
+  Notes \# \# \\
+\end{flushright}
+\section*{Concepts for Test}
+\subsection*{Unix}
+\begin{itemize}
+  \item Absolute Path
+  \item Relative Path
+  \item Shell
+  \item Bash/csh/tcsh
+  \item Command ls -al:
+  \begin{itemize}
+    \item Example:\\
+    drwxr-xr-x, 3, will, finance, 4096, \today, will
+    \item Meaning:\\
+    \[\frac{\text{d}}{\text{type}}\cdot\frac{\text{rwxr-xr-x}}{\text{Permissions}}\cdot\frac{3}{\text{links}}\cdot\frac{\text{will}}{\text{Owner}}\cdot\frac{\text{finance}}{\text{Group}}\cdot\frac{\text{4096}}{\text{sizeBytes}}\cdot\frac{\text{\today}}{\text{Date last modified}}\cdot\frac{\text{will}}{\text{fileName/DirectoryName}}\]
+  \end{itemize}
+  \item permissions:\\
+  'd' directory\\
+  '-' ordinary file\\
+  'l' symbolic link
+  \item three access types
+  \item user categories:
+  \begin{itemize}
+    \item user
+    \item user group
+    \item other users
+    \item 'r', 'w', 'x'
+  \end{itemize}
+  \[\frac{\text{RWX}}{\text{User}}\cdot\frac{\text{R-X}}{\text{Group}}\cdot\frac{\text{R-X}}{\text{Other}}\]
+  'r' - read, 'w' - write, 'x' - execute, '-' - no permission for field.
+  \item '..' and '.' and other cd commands
+  \begin{itemize}
+    \item '..' - parent directory
+    \item '.' - current directory
+    \item example: cd ../../ -> parent parent
+    \item '-' equivalent to 'back' brings to previous cd -option result
+  \end{itemize}
+  \item \textbf{rmdir} - removes empty directory
+  \item \textbf{mkdir} - adds directory to path or current directory
+  \item \textbf{cp} [Source File] destination - copy a file to a destination
+  \begin{itemize}
+    \item if the destination is a file, only one source file is allowed
+    \item if the destination is a folder, many sources can be copied into a destination folder
+    \item option -r (meaning recursively) copies all files and subfolders and so one to the destination.
+    \item use of wildcard implies all of type
+  \end{itemize}
+  \item \textbf{mv} [Options] <source> <destination>
+  \begin{itemize}
+    \item move file or directory to another place
+    \item optional rename a file or directory
+    \item automatically recursive
+  \end{itemize}
+  \item \textbf{rm} [Options] <source>
+  \begin{itemize}
+    \item rm * is very dangerous
+    \item rm is dangerous
+    \item good practice \textbf{alias rm ='rm -i'} asks for confirmation before deletion
+    \item -r against is recursive
+    \item rm itself does not remove directories
+  \end{itemize}
+  \item \textbf{alias} [command] = [command];
+  \begin{itemize}
+    \item temporary
+  \end{itemize}
+  \item \textbf{touch} [Option] <file>
+  \begin{itemize}
+    \item Creates an empty file (if used without options, and file does not exist)
+    \item adjust the timestamp of the specified file to current time (without options)
+  \end{itemize}
+\end{itemize}
+\subsection*{Permissions}
+\begin{itemize}
+  \item Why is it advantagous?
+  \begin{itemize}
+    \item makes things safer from malicious files
+  \end{itemize}
+\end{itemize}
+\subsection*{Other Commands}
+\begin{itemize}
+  \item \textbf{chmod} <mode> <file>
+  \begin{itemize}
+    \item Change file/directory permissions base on what is specified in the <mode> argument.
+    \item The format of <mode> is a combination of 3 fields:
+    \begin{itemize}
+      \item Who is affected: [u]ser, [g]roup, [o]ther, [a]ll users
+      \item Whether adding or removing permissions: + or -
+      \item Which permissions are being added/removed [w]rite, [r]ead, e[x]ecute
+      \item Example: \textbf{chmod ug+rw myfile}
+      \end{itemize}
+    \item \textbf{chmod} with numeric mode
+    \begin{itemize}
+      \item Uses three digits of octal numbers: 777, 755
+      \item Ordered as ugo
+      \item Sum of the permission values
+      \item read: 4, write: 2, execute: 1
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+\subsection*{Read Files}
+\begin{itemize}
+  \item \textbf{nano} [Option] <file>
+  \begin{itemize}
+    \item Simple text editor in bash
+  \end{itemize}
+  \item \textbf{cat} <filename>
+  \begin{itemize}
+    \item Prints the contents of the file t othe terminal
+    \item with two filenames it appears to concatinate the two files file 1 and file 2
+  \end{itemize}
+  \item \textbf{more} <filename>
+  \item \textbf{less} <filename>
+  \item \textbf{head} [option] <filename> read from beginning
+  \item \textbf{tail} [option] <filename> read from end
+  \begin{itemize}
+    \item option is numlines
+    \item default is ten
+  \end{itemize}
+  
+\end{itemize}
+\subsection*{Wild Cards}
+Also called metacharacters
+\begin{itemize}
+  \item * - will match any string including null string
+  \item ? - match a single character(cannot be null)
+  \item [] - will match any one character inside the brackets, can use dash for a range of characters or numbers. Commas can separate different range references. Commas are not necessary between ranges, but does increase readability.
+  \item \^ - used in [], matches any  single character inside the bracket. Essentially [not] logic.
+\end{itemize}
+\subsection*{PATH}
+\begin{itemize}
+  \item when searching for commands, will search all paths in the PATH variable
+  \item echo \$PATH - shows the contents of the path variable
+  \item export \$PATH="\$PATH":newPath adds newPath to the PATH variable
+\end{itemize}
+\subsection*{.bashrc}
+Permanent location of PATH variable among other permantent bash things.
+\begin{itemize}
+  \item executed whenever a new shell is started
+  \item Ti add a PATH entry permanently
+  \begin{itemize}
+    \item add a command to bashrc
+  \end{itemize}
+\end{itemize}
+\subsection{Shell Sequence, Redirection, Piping}
+\begin{itemize}
+  \item When you type in a command, shell goes through quite a complicated sequence of operations to process your request.
+  \begin{itemize}
+    \item Check aliases
+    \item parameter expansion, substitution, quotes removal
+    \item Shell function
+    \item built in command
+    \item hash tables for previously executed commands
+    \item PATH VARIABLES
+  \end{itemize}
+  If all of those fail, command will fail.
+  \item \textbf{Find} advanced search, equivalent to advanced search in windows.
+\end{itemize}
+\subsection*{I/O Stream}
+\begin{itemize}
+  \item Every Unix program has three streams opened for it, one for input, one for outpot, one for errors.
+  \begin{itemize}
+    \item input stream is reffered to as standard input
+    \item output stream is reffered to as standard output
+    \item error stream is reffered to as standard error
+  \end{itemize}
+  \item stdin stdout stderr
+  \item every device is considered a file
+  \item The integer file discriptors associated with the streams stdin, stdout, and stderr are 0, 1, 2 respectively
+  \item The standard output -- the screen on your terminal by default.
+  \item \textbf{cat} reads from stdin by default (integer reference 0)
+  \item you can redirect these streams to a file, or somewhere else in general
+  \item You redirect these streams to a file, or even another command with redirection
+  \item \textbf{wc -l < hw1.c} counts lines from file hw1.c with the -l option to count lines
+  \item this is an example of input redirection
+  \item \textbf{mail tony@good.org < todo.txt} redirects text from file to email.
+  \item \textbf{>} redirects standard output to a file
+  \begin{itemize}
+    \item if you redirect the standard output to an existing file, it will overwrite the file, unless you use the \textbf{>>} operator
+    \item \textbf{>>} appends the standard output to the contents of the existing file.
+  \end{itemize}
+  \item to redirect the standard error stream to a file, use the \textbf{>} opperator preceded by a 2
+  \begin{itemize}
+    \item 
+  \end{itemize}
+\end{itemize}
+\subsection*{Piping}
+\begin{itemize}
+  \item Piping is when you connect the standard output of one command to the standard input of another
+  \begin{itemize}
+    \item \textbf{ls -l | wc -l}
+    \item count how many files and folders in the current directory
+    \item \textbf{who | grep "tony"}
+    \item check whether tony is logged in.
+    \item First run who to list all logged in users then search 'tony' in that list
+    \item Differs from I/O redirection
+  \end{itemize}
+\end{itemize}
+\subsection*{grep}
+\begin{itemize}
+  \item search command
+  \begin{itemize}
+    \item -i case insensitive
+    \item -r recursive
+    \item grep -rn dbConnect --include=*.c ./ searches all c files from current directory onwards that contain dbConnect
+    \item -v invert, all lines that do not contain
+    \item -c count instead of display lines
+    \item -x provided pattern has to match a line exactly
+    \item powerful with piping
+    \item \textbf{ls -LR | grep errfile}
+    \begin{itemize}
+      \item -LR follows links and recursive gets all \textbf{ls} entries for all subdirectories and current directory
+      \item pipes the output to grep and grep searchs for a file called errfile.
+    \end{itemize}
+      \item \textbf{tail -n8 a\_file | grep "boo"}
+  \end{itemize}
+\end{itemize}
+\section*{Regular Expressions}
+\begin{itemize}
+  \item A test string of special characters that specifies a set of patterns to match
+  \item Most characters represent themselves
+\end{itemize}
+\subsection*{REGEX metacharacters}
+\begin{itemize}
+  \item . - will match any one character with the exception of the newline character.
+  \item '.wn' matches wn preceded by one character.
+  \item * - matches the preceding character zero or more times
+  \item '-*' matches '--', '----', '-', and so on.
+  \item \$ - matches the end of the line. So 'a\$' matches 'a' only when it is the last character on a line
+  \item \^ - matches the beginning of the line. so '\^a' matches 'a' only when it is the first character on a line.
+  \item '\^\$' - matches empty line
+  \item '\^.' - matches any non empty line
+  \item '\^.*\$' - matches any line
+  \item '\' - escape character, just like latex
+  \item brackets function the same way they do for the shell 
+\end{itemize}
+\subsection*{Find command}
+\begin{itemize}
+  \item \textbf{find . -name ".txt" -exec wc -l \{\} ';'}
+  \item search the current folder and all subfolders for the pattern, and then executes the command 'wc -l' with the replaced file name '\{\}' and ends the exec clause ';'
+  \item man find gives more info on find
+\end{itemize}
+\subsection*{Echo}
+\begin{itemize}
+  \item Escape character \
+  \item Single Quotes
+  \begin{itemize}
+    \item Variables banes are bit exoabded
+    \item Everthing inside is treated literally
+    \begin{itemize}
+      \item NAME=john - here NAME is a shell variable
+      \item echo '$NAME' -$NAME
+    \end{itemize}
+  \end{itemize}
+  \item Double Quotes
+  \begin{itemize}
+    \item Variable names are expanded
+    \item Special meaning of metacharacters are preserved
+    \begin{itemize}
+      \item NAME=john
+      \item echo "\$NAME" - john
+    \end{itemize}
+    \item Preserves meaning of the following
+    \begin{itemize}
+      \item backquotes
+      \begin{itemize}
+        \item accent characters
+        \item the output of the command generated by the command replaces the command itself
+        \item echo `pwd` - /home/tim
+        \item echo "The current time is `date`." - The current time is Wed Dec 25 20:23:55 PST 2013.
+      \end{itemize}
+      \item dollar sign - expand variable
+      \item backslash related replacements
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+\subsection*{Link}
+\begin{itemize}
+  \item \textbf{ln}
+  \iten makes links between files
+  \item \textbf{ln -s\~/cscd240/mylab1.txt mylab_link}
+  \begin{itemize}
+    \item -s means symbolic links or soft links
+    \item Create a symbolic link mylab_link, which links to file ~/cscd240/mylab1.txt
+  \end{itemize}
+  \item if you modify the 'symbolic link' you are modifying the actual file
+  \item the symbolic link can exist on a different disk partition than the target
+  \item directory also ca be linked with symbolic link
+\end{itemize}
+\subsection*{archive files: tar}
+\begin{itemize}
+  \item \textbf{tar -cvf myArch.tar file1 file2 file3 folder1}
+  \begin{itemize}
+    \item create an archive file myArach.tar, which contains two regular files file1, file2, and all contents in folder1.
+    \item c means creating new archive file
+    \item v means verbose output and listing all files in the archive file
+    \item f means writing to the provided archive file name
+  \end{itemize}
+  \item \textbf{tar -xvf myArch.tar}
+  \item the z option using zip style compression/decompression
+\end{itemize}
+\subsection{processes and jobs}
+\begin{itemize}
+  \item Process - a program in execution
+  \begin{itemize}
+    \item editing a file in nano
+    \item listening to music with some program
+  \end{itemize}
+  \item A process consists of resources that the program needs to run
+  \begin{itemize}
+    \item Such as a program instructions, the files descriptors, the memory to be used, (Registers, Stack, Heap), IPC tools, etc.
+  \end{itemize}
+  \item The OS keeps track of processes by assigning each a number, the process id or PID.
+  \item When you invoke a system utility or application program from a shell, one or mroe child processes are created by the shell
+  \item An important process that is always present is the init process
+  \item Show the states of the processes and their PID
+  \begin{itemize}
+    \item \textbf{ps}
+    \begin{itemize}
+      \item without any argument, it will list PIDs for processes owned by the current shell
+    \end{itemize}
+    \item \textbf{ps -aux}
+    \begin{itemize}
+      \item shows full information about all processes on BSD machine
+      \item \textbf{ps -fae} - linux systems
+    \end{itemize}
+    \item \textbf{ps -u user}
+    \begin{itemize}
+      \item Shows all processes belonging to the user
+    \end{itemize}
+  \end{itemize
+  \item \textbf{kill [PID]} - sends different level signals to the running process, requesting it to shutdown}
+  \item \textbf{kill -l - kist all signals}
+  \item \textbf{kill -9 [PID] - kill abruptly (immeadiate), useful for stalls and looping issues}
+\end{itemize}
+\subsection*{Job}
+\begin{itemize}
+  \item Actually the same thing as a process but restricted to the processes started by a particular shell
+  \begin{itemize}
+    \item Attached t othat shell session
+    \item if Shell closes, jobs in the shell terminate
+  \end{itemize}
+  \item Jobs can either be in the foreground or the background
+  \begin{itemize}
+    \item bg \%n runs the job in the background.
+  \end{itemize}
+  \item \textbf{job -l}
+  \begin{itemize}
+    \item List the active jobs and its pid
+    \item \textbf{[1]+ 1490 Running find / -print 1>output2>errors &}
+    \begin{itemize}
+      \item [1] is the job number
+      \item 1490 is the PID
+      \item find / -print 1>output2>errors &
+      \item start a job as background job usuing & at the end.
+    \end{itemize}
+    \item note that if you have more than one job you refer to the job as \%n where n is the job number
+    \item \textbf{kill -9 \%1} kills the first job.
+  \end{itemize}
+  \item ctrnl + z, suspend or sleep the foreground, cntrl + c kills the foreground
+\end{itemize}
+\end{document}

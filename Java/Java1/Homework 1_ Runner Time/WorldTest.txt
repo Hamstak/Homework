@@ -1,0 +1,28 @@
+Input winning time: 12
+      8.33 Meters per second 
+     27.01 Feet per second 
+     30.00 Kilometers per hour 
+     18.41 Miles per hour 
+This person can run a mile in 3 minutes and 0.05 seconds. 
+This person can run 100 yards in 11.11 seconds.
+
+
+
+Input winning time: 9
+     11.11 Meters per second 
+     36.01 Feet per second 
+     40.00 Kilometers per hour 
+     24.55 Miles per hour 
+This person can run a mile in 2 minutes and 0.04 seconds. 
+This person can run 100 yards in 8.33 seconds.
+
+
+
+Input winning time: 13
+      7.69 Meters per second 
+     24.93 Feet per second 
+     27.69 Kilometers per hour 
+     17.00 Miles per hour 
+This person can run a mile in 3 minutes and 0.06 seconds. 
+This person can run 100 yards in 12.03 seconds.
+

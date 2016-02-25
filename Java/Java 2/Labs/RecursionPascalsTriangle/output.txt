@@ -1,0 +1,29 @@
+    
+     ----jGRASP exec: java Tester
+    The middle number of Pascal's Triangle for row: 0 is 1
+    
+    The middle number of Pascal's Triangle for row: 2 is 2
+    
+    The middle number of Pascal's Triangle for row: 4 is 6
+    
+    The middle number of Pascal's Triangle for row: 6 is 20
+    
+    The middle number of Pascal's Triangle for row: 8 is 70
+    
+    The middle number of Pascal's Triangle for row: 10 is 252
+    
+    The middle number of Pascal's Triangle for row: 12 is 924
+    
+    The middle number of Pascal's Triangle for row: 14 is 3432
+    
+    The middle number of Pascal's Triangle for row: 16 is 12870
+    
+    The middle number of Pascal's Triangle for row: 18 is 48620
+    
+    The middle number of Pascal's Triangle for row: 20 is 184756
+    
+    The middle number of Pascal's Triangle for row: 22 is 705432
+    
+    
+     ----jGRASP: operation complete.
+    
