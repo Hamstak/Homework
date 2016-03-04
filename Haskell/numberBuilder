@@ -1,0 +1,4 @@
+
+enumerateNumbers (x:xs) = if length x > 13 then buildNumbers x : enumerateNumbers xs else x : enumerateNumbers xs
+
+buildNumbers xs = if length xs > 13 then (take 13 xs) : buildNumbers (drop 1 xs) else (take 13 xs)
